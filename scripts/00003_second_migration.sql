@@ -27,7 +27,7 @@ USE DBA;
 -- ========== ========== ========== ========== ========== ========== ==========
 
 
--- @DELIMITER %
+DELIMITER ||
 
 CREATE FUNCTION format_time( picoseconds BIGINT UNSIGNED )
   RETURNS varchar(16) CHARSET utf8
@@ -45,16 +45,16 @@ DETERMINISTIC
     END IF;
 
   END;
-%
+||
 
--- @DELIMITER ;
+DELIMITER ;
 
 -- ========== ========== ========== ========== ========== ========== ==========
 
 -- ---------- ---------- ----------
 
 -- ---------- ---------- ----------
--- @DELIMITER %
+DELIMITER ||
 
 -- ---------- ---------- ----------
 CREATE DEFINER = CURRENT_USER
@@ -148,15 +148,15 @@ DETERMINISTIC
     RETURN s;
 
   END;
-%
+||
 
 -- ---------- ---------- ----------
--- @DELIMITER ;
+DELIMITER ;
 
 -- ========== ========== ========== ========== ========== ========== ==========
 
 
--- @DELIMITER %
+DELIMITER ||
 
 CREATE DEFINER=CURRENT_USER FUNCTION DBA.track_objects_check_existance(
   p_tbl_schema VARCHAR(64),
@@ -240,14 +240,14 @@ READS SQL DATA
     RETURN v_found;
 
   END;
-%
+||
 
--- @DELIMITER ;
+DELIMITER ;
 
 -- ========== ========== ========== ========== ========== ========== ==========
 
 
--- @DELIMITER %
+DELIMITER ||
 
 CREATE DEFINER=CURRENT_USER FUNCTION DBA.track_objects_check_found(
   p_obj_schema VARCHAR(64),
@@ -329,9 +329,9 @@ READS SQL DATA
     RETURN v_found;
 
   END;
-%
+||
 
--- @DELIMITER ;
+DELIMITER ;
 
 -- ========== ========== ========== ========== ========== ========== ==========
 
